@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: changeit
+    volumes:
+      - kinesis-postgres-data:/var/lib/postgresql/data
+volumes:
+  kinesis-postgres-data:
