@@ -4,6 +4,7 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: changeit
+      POSTGRES_DB: kinesis
     volumes:
       - kinesis-postgres-data:/var/lib/postgresql/data
 volumes:
