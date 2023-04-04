@@ -3,9 +3,11 @@ services:
     image: postgres:15
     restart: always
     environment:
-      POSTGRES_PASSWORD: changeit
-      POSTGRES_DB: kinesis
+      POSTGRES_USER_FILE: /run/secrets/database/user
+      POSTGRES_PASSWORD_FILE: /run/secrets/database/password
+      POSTGRES_DB_FILE: /run/secrets/database/name
     volumes:
-      - kinesis-postgres-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
+      - ./secrets/database:/run/secrets/database
 volumes:
-  kinesis-postgres-data:
+  postgres-data:
